@@ -28,6 +28,8 @@ local sounds = {
     {"can you hear me", 4769589095},
     {"mincraft ransom", 107042626686342},
     {"funi musiek", 137925923193604},
+    {"crying goblin", 82299572312177},
+    {"yapping royale", 128801234616968}
 }
 
 local player = game.Players.LocalPlayer
