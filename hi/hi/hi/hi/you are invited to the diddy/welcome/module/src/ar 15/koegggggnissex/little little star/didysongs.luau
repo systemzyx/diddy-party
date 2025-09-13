@@ -32,7 +32,20 @@ local sounds = {
     {"yapping royale", 128801234616968},
     {"quagmire", 9369228943340},
     {"tante bokep", 9087024260},
-    {"Arabic thingy", 9108676586}
+    {"Arabic thingy", 9108676586},
+    {"kerosene", 17647322226},
+    {"Vietnam thingy", 4699831936},
+    {"mente ma funk", 98337901681441},
+    {"feipo ye feipo", 74856563303589},
+    {"thailand fire beat", 107283741377032},
+    {"nigger nigger", 88325934407038},
+    {"jet 2 holiday", 92424176775385},
+    {"loud alarm", 100573500376225},
+    {"nicah", 8848794078},
+    {"like a nigger", 2305098011},
+    {"dry metal", 348401846},
+    {"loud dog laugh", 8449305114},
+    {"laughing louding", 8255804165},
 }
 
 local player = game.Players.LocalPlayer
@@ -53,7 +66,7 @@ title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 title.TextColor3 = Color3.new(1,1,1)
 title.Text = "Bypassed Audios"
 title.Font = Enum.Font.SourceSansBold
-title.TextSize = 18
+title.TextSize = 24
 title.Parent = frame
 
 local scrollingFrame = Instance.new("ScrollingFrame")
@@ -79,7 +92,7 @@ for _, data in ipairs(sounds) do
     btn.TextSize = 18
     btn.Text = data[1]
     btn.Parent = scrollingFrame
-
+    Instance.new("UICorner",btn)
     btn.MouseButton1Click:Connect(function()
         if setclipboard then
             if data[3] then
@@ -131,7 +144,7 @@ end)
 local UIS = game:GetService("UserInputService")
 local TS = game:GetService("TweenService")
 
-local frame = gethui().ScreenGui.Frame
+local frame = frame
 
 local dragging, dragInput, dragStart, startPos
 local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
