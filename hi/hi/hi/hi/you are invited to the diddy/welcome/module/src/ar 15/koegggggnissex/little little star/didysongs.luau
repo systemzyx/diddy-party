@@ -30,7 +30,9 @@ local sounds = {
     {"funi musiek", 137925923193604},
     {"crying goblin", 82299572312177},
     {"yapping royale", 128801234616968},
-    {"quagmire", 9369228943340}
+    {"quagmire", 9369228943340},
+    {"tante bokep", 9087024260},
+    {"Arabic thingy", 9108676586}
 }
 
 local player = game.Players.LocalPlayer
