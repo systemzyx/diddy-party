@@ -44,13 +44,12 @@ frame.Position = UDim2.new(0, 50, 0, 50)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 frame.Parent = gui
 frame.Active = true
-frame.Draggable = true
 
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, 0, 0, 30)
 title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 title.TextColor3 = Color3.new(1,1,1)
-title.Text = "Diddy Audios"
+title.Text = "Bypassed Audios"
 title.Font = Enum.Font.SourceSansBold
 title.TextSize = 18
 title.Parent = frame
@@ -119,11 +118,54 @@ stopBtn.Font = Enum.Font.SourceSansItalic
 stopBtn.TextSize = 18
 stopBtn.Text = "Stop Audio"
 stopBtn.Parent = frame
-
+Instance.new("UICorner",stopBtn)
 stopBtn.MouseButton1Click:Connect(function()
     if currentSound then
         currentSound:Stop()
         currentSound:Destroy()
         currentSound = nil
+    end
+end)
+local UIS = game:GetService("UserInputService")
+local TS = game:GetService("TweenService")
+
+local frame = gethui().ScreenGui.Frame
+
+local dragging, dragInput, dragStart, startPos
+local tweenInfo = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+local function update(input)
+    local delta = input.Position - dragStart
+    local newPos = UDim2.new(
+        startPos.X.Scale,
+        startPos.X.Offset + delta.X,
+        startPos.Y.Scale,
+        startPos.Y.Offset + delta.Y
+    )
+    TS:Create(frame, tweenInfo, {Position = newPos}):Play()
+end
+
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UIS.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
     end
 end)
