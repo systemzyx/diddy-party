@@ -5,13 +5,6 @@ local sounds = {
     {"chicken dih", 132734127940213},
     {"idk what to say w", 117035648141045},
     {"krabs meme", 113460632982556},
-local sounds = {
-    {"espresso macchiato", 133101411205559},
-    {"furry tik tok sound", 72075853222295},
-    {"chinise song", 134713831368801},
-    {"chicken dih", 132734127940213},
-    {"idk what to say w", 117035648141045},
-    {"krabs meme", 113460632982556},
     {"snickers meme", 87702011064488},
     {"snickers v2", 95414645600785},
     {"slave loud meme", 118240228297368},
@@ -143,7 +136,7 @@ stopBtn.BackgroundColor3 = Color3.fromRGB(150, 50, 50)
 stopBtn.TextColor3 = Color3.new(1,1,1)
 stopBtn.Font = Enum.Font.SourceSansItalic
 stopBtn.TextSize = 18
-stopBtn.Text = "Stop Music"
+stopBtn.Text = "Stop Audio"
 stopBtn.Parent = frame
 Instance.new("UICorner",stopBtn)
 stopBtn.MouseButton1Click:Connect(function()
