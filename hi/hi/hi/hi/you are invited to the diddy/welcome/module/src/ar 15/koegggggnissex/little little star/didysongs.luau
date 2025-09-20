@@ -50,7 +50,8 @@ local sounds = {
     {"crazy laugh", 17488592217},
     {"back to the lobby", 85435166429333},
     {"one pound fish", 91301048841024},
-    {"",},
+    {"fortinayt babaji", 9104349607},
+    {"earrape", 9086666231},
 }
 
 local player = game.Players.LocalPlayer
